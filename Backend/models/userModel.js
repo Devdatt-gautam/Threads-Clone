@@ -11,10 +11,14 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    password: {
+    email: {
       type: String,
       required: true,
       unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
     },
     profilePic: {
       type: String,
