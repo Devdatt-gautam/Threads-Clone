@@ -8,8 +8,6 @@ export default defineConfig({
   server: {
     port: 3000,
     //get rid of cors errors
-    proxy: {
-      "/api": "https://threads-clone-8hjb.onrender.com",
-    },
+    proxy: {},
   },
 });

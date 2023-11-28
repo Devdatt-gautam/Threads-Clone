@@ -34,7 +34,9 @@ const PostPage = () => {
     const getPost = async () => {
       setPosts([]);
       try {
-        const res = await fetch(`/api/posts/${pid}`);
+        const res = await fetch(
+          `https://threads-clone-8hjb.onrender.com/api/posts/${pid}`
+        );
         const data = await res.json();
         if (data.error) {
           showToast("Error", data.error, "error");
@@ -53,9 +55,12 @@ const PostPage = () => {
     try {
       e.preventDefault();
       if (!window.confirm("Are you sure want to delete this post?")) return;
-      const res = await fetch(`/api/posts/${currentPost._id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://threads-clone-8hjb.onrender.com/api/posts/${currentPost._id}`,
+        {
+          method: "DELETE",
+        }
+      );
       const data = await res.json();
       if (data.error) {
         showToast("Error", data.error, "error");

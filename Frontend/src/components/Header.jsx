@@ -18,12 +18,15 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("/api/users/logout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "applicatio/json",
-        },
-      });
+      const res = await fetch(
+        "https://threads-clone-8hjb.onrender.com/api/users/logout",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "applicatio/json",
+          },
+        }
+      );
       const data = await res.json();
       console.log(data);
       if (data.error) {

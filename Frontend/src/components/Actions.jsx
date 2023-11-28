@@ -43,12 +43,15 @@ const Actions = ({ post }) => {
       );
     }
     try {
-      const res = await fetch("/api/posts/like/" + post._id, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://threads-clone-8hjb.onrender.com/api/posts/like/" + post._id,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await res.json();
       if (data.error) {
         showToast("Error", data.error, "error");
@@ -93,13 +96,16 @@ const Actions = ({ post }) => {
     }
     try {
       setIsReplying(true);
-      const res = await fetch("/api/posts/reply/" + post._id, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ text: reply }),
-      });
+      const res = await fetch(
+        "https://threads-clone-8hjb.onrender.com/api/posts/reply/" + post._id,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: reply }),
+        }
+      );
 
       const data = await res.json();
       if (data.error) {

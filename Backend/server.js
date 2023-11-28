@@ -18,7 +18,10 @@ cloudinary.config({
   api_key: process.env.CLODINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-
+const corsOptions = {
+  origin: "https://threads-frontend-n7mb.onrender.com",
+};
+app.use(cors(corsOptions));
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

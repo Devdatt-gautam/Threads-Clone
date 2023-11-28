@@ -47,12 +47,15 @@ const UserHeader = ({ user }) => {
     }
     setUpdating(true);
     try {
-      const res = await fetch(`/api/users/follow/${user._id}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        `https://threads-clone-8hjb.onrender.com/api/users/follow/${user._id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = res.json();
       if (data.error) {
         showToast("Error", data.error, "error");
