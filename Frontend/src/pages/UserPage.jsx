@@ -19,7 +19,10 @@ const UserPage = () => {
       setFetchingPosts(true);
       try {
         const res = await fetch(
-          `https://threads-clone-8hjb.onrender.com/api/posts/user/${username}`
+          `https://threads-clone-8hjb.onrender.com/api/posts/user/${username}`,
+          {
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (data.error) {

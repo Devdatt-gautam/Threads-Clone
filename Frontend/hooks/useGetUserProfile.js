@@ -11,7 +11,10 @@ const useGetUserProfile = () => {
     const getUser = async () => {
       try {
         const res = await fetch(
-          `https://threads-clone-8hjb.onrender.com/api/users/profile/${username}`
+          `https://threads-clone-8hjb.onrender.com/api/users/profile/${username}`,
+          {
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (data.error) {

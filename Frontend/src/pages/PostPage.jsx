@@ -35,7 +35,10 @@ const PostPage = () => {
       setPosts([]);
       try {
         const res = await fetch(
-          `https://threads-clone-8hjb.onrender.com/api/posts/${pid}`
+          `https://threads-clone-8hjb.onrender.com/api/posts/${pid}`,
+          {
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (data.error) {
@@ -59,6 +62,7 @@ const PostPage = () => {
         `https://threads-clone-8hjb.onrender.com/api/posts/${currentPost._id}`,
         {
           method: "DELETE",
+          credentials: "include",
         }
       );
       const data = await res.json();

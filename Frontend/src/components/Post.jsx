@@ -18,11 +18,15 @@ const Post = ({ post, postedBy }) => {
     const getUser = async () => {
       try {
         const res = await fetch(
-          `https://threads-clone-8hjb.onrender.com/api/users/profile/${postedBy}`
+          `https://threads-clone-8hjb.onrender.com/api/users/profile/${postedBy}`,
+          {
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (data.error) {
           showToast("Error", data.error, "error");
+          return;
         }
 
         setUser(data);
@@ -42,11 +46,13 @@ const Post = ({ post, postedBy }) => {
         `https://threads-clone-8hjb.onrender.com/api/posts/${post._id}`,
         {
           method: "DELETE",
+          credentials: "include",
         }
       );
       const data = await res.json();
       if (data.error) {
         showToast("Error", data.error, "error");
+        return;
       }
       showToast("Success", "Post deleted successfully", "success");
       setPosts(posts.filter((p) => p._id !== post._id));

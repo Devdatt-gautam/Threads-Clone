@@ -50,11 +50,13 @@ const Actions = ({ post }) => {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
         }
       );
       const data = await res.json();
       if (data.error) {
         showToast("Error", data.error, "error");
+        return;
       }
       console.log(data);
       if (!liked) {
@@ -103,6 +105,7 @@ const Actions = ({ post }) => {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify({ text: reply }),
         }
       );
@@ -110,6 +113,7 @@ const Actions = ({ post }) => {
       const data = await res.json();
       if (data.error) {
         showToast("Error", data.error, "error");
+        return;
       }
       const updatedPosts = posts.map((p) => {
         if (p._id === post._id) {
@@ -119,7 +123,7 @@ const Actions = ({ post }) => {
       });
       setPosts(updatedPosts);
       setReply("");
-      console.log(data);
+      // console.log(data);
       showToast("Success", "Reply posted successfully", "success");
       onClose();
     } catch (error) {

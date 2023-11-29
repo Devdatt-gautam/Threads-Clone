@@ -54,6 +54,7 @@ const UserHeader = ({ user }) => {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
         }
       );
       const data = res.json();

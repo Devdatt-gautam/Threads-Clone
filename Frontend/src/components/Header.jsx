@@ -25,6 +25,7 @@ const Header = () => {
           headers: {
             "Content-Type": "applicatio/json",
           },
+          credentials: "include",
         }
       );
       const data = await res.json();
