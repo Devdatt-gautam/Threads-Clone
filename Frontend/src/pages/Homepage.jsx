@@ -15,7 +15,10 @@ const Homepage = () => {
       setPosts([]);
       try {
         const res = await fetch(
-          "https://threads-clone-8hjb.onrender.com/api/posts/feed"
+          "https://threads-clone-8hjb.onrender.com/api/posts/feed",
+          {
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (data.error) {
