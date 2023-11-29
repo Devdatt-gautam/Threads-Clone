@@ -20,6 +20,7 @@ const Homepage = () => {
         const data = await res.json();
         if (data.error) {
           showToast("Error", data.error, "error");
+          return;
         }
         setPosts(data);
         console.log(data);
