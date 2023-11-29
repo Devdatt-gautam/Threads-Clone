@@ -19,7 +19,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 const corsOptions = {
-  origin: "https://threads-3pc2.onrender.com",
+  credentials: true,
+  origin: "https://threads-3pc2.onrender.com/",
 };
 app.use(cors(corsOptions));
 app.use(express.json({ limit: "50mb" }));
