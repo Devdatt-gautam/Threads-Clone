@@ -27,7 +27,7 @@ https://threads-3pc2.onrender.com
 - Dark / Light Mode.
 - Likes,Reply,Follow,Upload Images Robustly.
 - All CRUD Functionalities.
-
+- Responsive.
 
 
 
